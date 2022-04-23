@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后台侧边栏</title>
+		<link rel="stylesheet" type="text/css" href="css/侧边栏.css">
+		<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				
+				$(".nav-menu").each(function () {
+					$(this).children(".nav-content").hide();
+				});
+				
+				$(".nav-title").each(function () {
+					
+					$(this).click(function () {
+						
+						var navEle = $(this).parent(".nav-menu").children(".nav-content");
+						if(navEle.css("display")!="none"){
+							navEle.slideUp(1000);
+						}else {
+							var navMune = navEle.parents(".nav-menu");
+							
+							var otherNavs = navMune.siblings();
+							
+							otherNavs.each(function(){
+								$(this).children(".nav-content").slideUp(1000);
+							});
+							
+							navEle.slideDown(1000);
+						}
+						
+					});
+					
+				});
+				
+			});	
+		</script>
+	</head>
+	<body>
+		<header>
+				<div class="logo">
+					<a href="登录账号.html">谷甜后台管理系统</a>	
+				</div>
+		</header>
+		<div class="content">
+			<div class="content-left">
+				<div class="left-title">
+					<a href="#">功能菜单</a>
+				</div>
+				<div class="seg"></div>
+				
+				<div class="nav">
+					
+					<div class="nav-menu">
+						<!--主标题-->
+						<div class="nav-title">用户</div>
+						<!--子标题-->
+						<div class="nav-content">
+							<a href="#">用户管理</a>
+							<a href="#">管理员管理</a>
+						</div>
+					</div>
+					
+					<div class="nav-menu">
+						<!--主标题-->
+						<div class="nav-title">谷仓</div>
+						<!--子标题-->
+						<div class="nav-content">
+							<a href="#">谷仓管理</a>
+						</div>
+					</div>
+					
+					<div class="nav-menu">
+						<!--主标题-->
+						<div class="nav-title">支持</div>
+						<!--子标题-->
+						<div class="nav-content">
+							<a href="#">作品管理</a>
+							<a href="#">敏感词管理</a>
+						</div>
+					</div>
+					
+					<div class="nav-menu">
+						<!--主标题-->
+						<div class="nav-title">内容</div>
+						<!--子标题-->
+						<div class="nav-content">
+							<a href="#">启动管理</a>
+							<a href="#">广告管理</a>
+							<a href="#">轮播图管理</a>
+							<a href="#">文件管理</a>
+						</div>
+					</div>
+					
+				</div>	
+			</div>
+			
+			<div class="content-right">
+				<h1>内容区</h1>
+			</div>
+		</div>
+		
+	</body>
+</html>
